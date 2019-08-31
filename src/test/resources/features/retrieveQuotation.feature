@@ -1,11 +1,15 @@
 Feature: Retrieve Quotation
  
-  Scenario: User retrieve quotation with valid id
+  Scenario Outline: User retrieve quotation with valid id
     Given the user access the login webpage
-    When input email "1@1.com"
-    And input password "123"
+    When input email <email>
+    And input password <password>
     And click the login button
     Given the user click the retrieve quotation tab
-    When input id "987"
+    When input id <id>
     And click the Retrieve button
-    Then get the quotation values like breakdowncover "2", windscreenrepair "No", user_id "10112", incidents "1", Registration "2", Annual mileage "200000", Estimated value "100000", Parking Location "Road", Start of policy "2014.2.7", Calculate Premium "2050" 
+    Then get the quotation values like breakdowncover <breakdowncover>, windscreenrepair <windscreenrepair>, user_id <user_id>, incidents <incidents>, Registration <Registration>, Annual mileage <mileage>, Estimated value <value>, Parking Location <Location>, Start of policy <StartDate>, Calculate Premium <Premium>
+    
+    Examples:
+    |  email|password| id| breakdowncover|windscreenrepair|user_id|incidents|Registration|mileage| value|Location|StartDate|Premium|
+    |1@1.com|     123|987|              2|              No|  10112|        1|           2| 200000|100000|    Road| 2014.2.7|   2050|

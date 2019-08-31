@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverManager {
     public static WebDriver driver;
     
-    public void init(String browser) {
+    public static void init(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "Chromedriver.exe");
             driver = new ChromeDriver();
@@ -22,7 +22,7 @@ public class DriverManager {
         driver.manage().window().maximize();
     }
     
-    public void quit() {
+    public static void quit() {
         driver.quit();
     }
     
