@@ -2,28 +2,16 @@ package steps;
 
 import static org.junit.Assert.assertTrue;
 
-import org.openqa.selenium.support.PageFactory;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.HomePage;
-import pages.RetrieveQuotationInputPage;
-import pages.RetrieveQuotationPage;
-import utils.DriverManager;
 
 public class RetrieveQuotationStep extends StepsClass{
-    RetrieveQuotationInputPage objRetrieveQuotationInput;
-    RetrieveQuotationPage objRetrieveQuotation;
-    HomePage objHome;
 
     @Given("^the user click the retrieve quotation tab$")
     public void accessRequestQuotationPage() {
-        objRetrieveQuotationInput = PageFactory.initElements(DriverManager.driver, RetrieveQuotationInputPage.class);
-        objRetrieveQuotation = PageFactory.initElements(DriverManager.driver, RetrieveQuotationPage.class);
-        
-        objHome = PageFactory.initElements(DriverManager.driver, HomePage.class);
+
         objHome.retrieveQuotationLinkClick();
     }
 
@@ -52,6 +40,6 @@ public class RetrieveQuotationStep extends StepsClass{
         assertTrue(values[7].contains(parkingLocation));
         assertTrue(values[8].contains(startOfPolicy));
         assertTrue(values[9].contains(calculatePremium));
-        dm.quit();
+        driverManager.quit();
     }
 }

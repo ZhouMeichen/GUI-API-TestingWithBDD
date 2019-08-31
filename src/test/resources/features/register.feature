@@ -1,7 +1,7 @@
 Feature: Register
 
   Scenario: User register with valid information
-    Given the user access the login webpage via url "http://demo.guru99.com/insurance/v3/index.php" in the "chrome" browser
+    Given the user access the login webpage
     Given the user click the register button
     When select the Title "Ms"
     And input the First Name "Mike"

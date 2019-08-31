@@ -1,25 +1,16 @@
 package steps;
 
-import org.openqa.selenium.support.PageFactory;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.LoginPage;
-import pages.RegisterPage;
-import utils.DriverManager;
-
 import static org.junit.Assert.*;
 
 public class RegisterStep extends StepsClass {
-    LoginPage objLogin;
-    RegisterPage objRegister;
 
 	@Given("^the user click the register button$")
 	public void accessRegisterPage() {
-	    objRegister = PageFactory.initElements(DriverManager.driver, RegisterPage.class);
-	    objLogin = PageFactory.initElements(DriverManager.driver, LoginPage.class);
 	    objLogin.clickRegisterLink();
 	}
 
@@ -108,6 +99,6 @@ public class RegisterStep extends StepsClass {
 	@Then("^the login page will be shown$")
     public void registerWithValidData() {
         assertTrue(objLogin.isLoginButtonDisplayed());
-        dm.quit();
+        driverManager.quit();
     }
 }

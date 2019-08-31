@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverManager {
     public static WebDriver driver;
     
-    public void init(String browser, String initUrl) {
+    public void init(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "Chromedriver.exe");
             driver = new ChromeDriver();
@@ -20,7 +20,6 @@ public class DriverManager {
         
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get(initUrl);
     }
     
     public void quit() {
